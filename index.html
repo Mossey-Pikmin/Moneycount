@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15251f">
+  <meta name="description" content="Een eenvoudige teller voor euromunten en eurobiljetten.">
+  <title>Euro Teller</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">GELDTELLER</p>
+        <h1>Euro Teller</h1>
+      </div>
+      <button id="themeToggle" class="icon-button" aria-label="Wissel thema" title="Wissel thema">☼</button>
+    </header>
+
+    <section class="total-card" aria-live="polite">
+      <p>Totaalbedrag</p>
+      <output id="total">€ 0,00</output>
+      <span id="pieceCount">0 stuks geld</span>
+    </section>
+
+    <section>
+      <div class="section-heading"><h2>Munten</h2><span>8 waarden</span></div>
+      <div id="coins" class="money-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-heading"><h2>Biljetten</h2><span>7 waarden</span></div>
+      <div id="notes" class="money-grid"></div>
+    </section>
+
+    <section class="summary">
+      <div class="section-heading"><h2>Overzicht</h2><span>Huidige telling</span></div>
+      <div id="summaryRows" class="summary-rows">
+        <p class="empty">Er is nog geen geld geteld.</p>
+      </div>
+      <div class="summary-total"><span>Totaal</span><strong id="summaryTotal">€ 0,00</strong></div>
+    </section>
+
+    <button id="reset" class="reset-button">↺ Alles resetten</button>
+    <p class="footnote">Je telling wordt automatisch op dit apparaat opgeslagen.</p>
+  </main>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>

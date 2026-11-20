@@ -1,0 +1,15 @@
+EURO TELLER — installatiebestanden
+
+Inhoud:
+- index.html: app-scherm
+- style.css: vormgeving
+- app.js: teller en opslag
+- manifest.json + icon.svg: appnaam en pictogram
+- service-worker.js: offline cache
+
+Gebruik:
+1. Zet alle bestanden samen op een HTTPS-webserver (bijvoorbeeld GitHub Pages).
+2. Open de gepubliceerde website in Chrome op Android.
+3. Open het menu ⋮ en kies 'App installeren' of 'Toevoegen aan startscherm'.
+
+De app kan niet rechtstreeks als installeerbare PWA vanuit een ZIP of lokaal HTML-bestand worden geïnstalleerd: PWA-installatie vereist een HTTPS-host (localhost is de ontwikkeluitzondering).
